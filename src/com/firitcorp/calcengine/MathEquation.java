@@ -11,6 +11,7 @@ public class MathEquation {
     // -----------------------------------------------------------------------------------------------------------------
 
     // --- Version 3a: Using classes with accessors and mutators -------------------------------------------------------
+    /*
     private double leftVal;
     private double rightVal;
     private char opCode;
@@ -25,6 +26,41 @@ public class MathEquation {
     public void setLeftVal(double leftVal){this.leftVal = leftVal;}
     public void setRightVal(double rightVal){this.rightVal = rightVal;}
     public void setOpCode(char opCode){this.opCode = opCode;}
+    */
+    // -----------------------------------------------------------------------------------------------------------------
+
+    // --- Version 4: With Field Initializers --------------------------------------------------------------------------
+    private double leftVal;
+    private double rightVal;
+    private char opCode = 'a'; // set to initial value
+    private double result;
+
+    // Accessors
+    public double getLeftVal() {return leftVal;}
+    public double getRightVal() {return rightVal;}
+    public double getOpCode() {return opCode;}
+    public double getResult() {return result;}
+    // Mutators
+    public void setLeftVal(double leftVal){this.leftVal = leftVal;}
+    public void setRightVal(double rightVal){this.rightVal = rightVal;}
+    public void setOpCode(char opCode){this.opCode = opCode;}
+
+    // Constructor that doesn't take args
+    public MathEquation() {
+
+    }
+
+    // Constructor for default opCode
+    public MathEquation(char opCode) {
+        this.opCode = opCode;
+    }
+
+    // Constructor for both opCode and vals
+    public MathEquation(char opCode, double leftVal, double rightVal) {
+        this(opCode); // Chained to constructor above
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+    }
     // -----------------------------------------------------------------------------------------------------------------
 
     public void execute() {
@@ -50,6 +86,7 @@ public class MathEquation {
                 result = leftVal * rightVal;
                 break;
             default:
+                System.out.println("Error: Invalid OpCode");
                 result = 0.0d;
                 break;
         }

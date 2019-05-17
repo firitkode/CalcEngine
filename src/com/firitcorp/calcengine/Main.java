@@ -103,6 +103,7 @@ public class Main {
         // -------------------------------------------------------------------------------------------------------------
 
         // --- Version 3: Using classes w/ Accessors and Mutators ------------------------------------------------------
+        /*
         // Declare
         MathEquation[] equations = new MathEquation[4];
 
@@ -118,7 +119,35 @@ public class Main {
 
             System.out.println(equation.getOpCode() + " Result = " + equation.getResult());
         }
+        */
         // -------------------------------------------------------------------------------------------------------------
+
+        // --- Version 4: With Field Initializers ----------------------------------------------------------------------
+        /*
+        // Declare testEquation
+        MathEquation testEquation = new MathEquation();
+        testEquation.execute();
+        System.out.println("Result = " + testEquation.getResult());
+        */
+
+        // Declare
+        MathEquation[] equations = new MathEquation[4];
+
+        // Declare individual equations
+        equations[0] = new MathEquation('d', 100.0d, 50.0d);
+        equations[1] = new MathEquation('a', 25.0d, 92.0d);
+        equations[2] = new MathEquation('s', 225.0d, 17.0d);
+        equations[3] = new MathEquation('m', 11.0d, 30.0d);
+
+        // Loop through each MathEquation and execute
+        for (MathEquation equation : equations) {
+            equation.execute();
+
+            System.out.println(equation.getOpCode() + " Result = " + equation.getResult());
+        }
+
+        // -------------------------------------------------------------------------------------------------------------
+
     }
 
     // --- Version 3: Using Classes (comment-block if not using this) --------------------------------------------------
@@ -136,6 +165,7 @@ public class Main {
     // -----------------------------------------------------------------------------------------------------------------
 
     // --- Version 3a: Using Classes w/ Accessors and Mutators (comment-block if not using this) -----------------------
+    /*
     public static MathEquation create(double leftVal, double rightVal, char opCode) {
         MathEquation equation = new MathEquation();
 
@@ -145,5 +175,6 @@ public class Main {
 
         return equation;
     }
+    */
     // -----------------------------------------------------------------------------------------------------------------
 }
