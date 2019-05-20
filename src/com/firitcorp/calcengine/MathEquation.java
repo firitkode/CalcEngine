@@ -63,6 +63,27 @@ public class MathEquation {
     }
     // -----------------------------------------------------------------------------------------------------------------
 
+    // ---- Version 5: Using overloads ---------------------------------------------------------------------------------
+
+    public void execute(double leftVal, double rightVal) {
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+
+        // Call other execute implementation
+        execute();
+    }
+
+    public void execute(int leftVal, int rightVal) {
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+
+        // Call other execute implementation
+        execute();
+
+        result = (int)result;
+    }
+    // -----------------------------------------------------------------------------------------------------------------
+
     public void execute() {
         switch (opCode) {
             case 'a':
